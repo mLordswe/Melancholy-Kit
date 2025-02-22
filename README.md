@@ -1,12 +1,12 @@
-## Melancholy Kit 😞
+# Melancholy Kit 😞
 
 Ett React-komponentbibliotek för de som vet att inget egentligen spelar någon roll.
 
-Varför?
+## Varför?
 
 Livet är en serie repetitiva och meningslösa uppgifter. Precis som UI-komponenter. Varför skriva dem om och om igen när du istället kan använda Melancholy Kit – ett bibliotek som tar hand om grunden, så att du kan fokusera på att stirra tomt ut genom fönstret och fundera över varför du ens började med detta projekt.
 
-Installation
+## Installation
 
 Men ärligt talat, varför ens installera det? Men om du nu insisterar:
 
@@ -16,17 +16,19 @@ Eller, om du fortfarande orkar använda Yarn:
 
 yarn add melancholy-kit
 
-Användning
+## Användning
 
 Vad du än bygger, det kommer ändå att glömmas bort. Men här är ett exempel:
 
+```
 import { Button } from "melancholy-kit";
 
 export default function Example() {
 return <Button>Tryck här (fast det förändrar ingenting)</Button>;
 }
+```
 
-Komponenter
+## Komponenter
 
 Alla komponenter är designade för att spegla livets hopplöshet:
 
