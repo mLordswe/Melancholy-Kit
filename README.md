@@ -1,47 +1,50 @@
-# Melancholy Kit 😞
+# React + TypeScript + Vite
 
-Ett React-komponentbibliotek för de som vet att inget egentligen spelar någon roll.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Varför?
+Currently, two official plugins are available:
 
-Livet är en serie repetitiva och meningslösa uppgifter. Precis som UI-komponenter. Varför skriva dem om och om igen när du istället kan använda Melancholy Kit – ett bibliotek som tar hand om grunden, så att du kan fokusera på att stirra tomt ut genom fönstret och fundera över varför du ens började med detta projekt.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Installation
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
-Men ärligt talat, varför ens installera det? Men om du nu insisterar:
 
-npm install melancholy-kit
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-Eller, om du fortfarande orkar använda Yarn:
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-yarn add melancholy-kit
-
-Användning
-
-Vad du än bygger, det kommer ändå att glömmas bort. Men här är ett exempel:
-
-import { Button } from "melancholy-kit";
-
-export default function Example() {
-  return <Button>Tryck här (fast det förändrar ingenting)</Button>;
-}
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
-## Komponenter
-```
-Alla komponenter är designade för att spegla livets hopplöshet:
-
-Button – Ett klick gör ingen skillnad.
-
-Modal – En pop-up som ingen bad om, precis som livets alla problem.
-
-Card – Ett rektangulärt fängelse för innehåll.
-
-Input – Fyll i det du vill, ingen läser det ändå.
-```
-Bidra
-
-Vi tar emot PRs, men vad spelar det för roll i det stora hela? Om du ändå vill bidra, skicka en pull request och förbered dig på att bli ignorerad av existensen själv.
-
-Licens
-
-MIT. För att inget egentligen tillhör någon.
