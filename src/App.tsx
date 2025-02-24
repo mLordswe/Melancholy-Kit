@@ -17,7 +17,7 @@ function App() {
 			</header>
 			<p>A sad Component library</p>
 			<ListSection title="Array of Animals" items={animalsArray} />
-			<DropDown items={persons} />
+			<DropDown items={persons} label="Names: " />
 			<Button title="Click me" handleClick={() => alert("I am sad")} />
 			<Counter />
 		</>
